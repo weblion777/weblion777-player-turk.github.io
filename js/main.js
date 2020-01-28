@@ -1215,7 +1215,7 @@ var AdvPlayer = function ( api ) {
 
 
           
-		
+			var isTouchDevice = function() {  return 'ontouchstart' in window || 'onmsgesturechange' in window; };
 			var isDesktop = window.screenX != 0 && !isTouchDevice() ? true : false;
             if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
 				if( isDesktop )
