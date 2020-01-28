@@ -1214,6 +1214,12 @@ var AdvPlayer = function ( api ) {
 
 
                 self.api.on('progress', function () {
+					
+					console.log(imgBannerDisplayed);
+					console.log(self.api.video.time);
+					console.log('видео скрыто ' + document.getElementsByClassName('fp-eng')[0].style.display === 'none');
+							
+							
                     if( (self.api.video.time > (self.api.video.duration - 10*60)  && imgBannerDisplayed === false && document.getElementsByClassName('fp-eng')[0].style.display === 'none')){ // self.api.video.duration - длительность фильма
                         if( startBannerTime == 0 || startBannerTime + 60 > self.api.video.time) // проверка показа баннера в течении минуты
                         {
@@ -1245,11 +1251,9 @@ var AdvPlayer = function ( api ) {
                         hideImageBanner()
                 });*/
 
-                window.addEventListener('blur',function(){
-					
+                window.addEventListener('blur',function(){				
                     if(iframeMouseOver){
                         hideImageBanner()
-						console.log('banner click');
 					}
                 });
 
