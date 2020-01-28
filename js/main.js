@@ -1239,16 +1239,18 @@ var AdvPlayer = function ( api ) {
                     }
                 });
 
-                document.addEventListener('click',function(e){
+                /*document.addEventListener('click',function(e){
 					console.log('close button click');
                     if(e.target.classList.contains("img_banner_close_button"))
                         hideImageBanner()
-                });
+                });*/
 
                 window.addEventListener('blur',function(){
-					console.log('banner click');
-                    if(iframeMouseOver)
+					
+                    if(iframeMouseOver){
                         hideImageBanner()
+						console.log('banner click');
+					}
                 });
 
                 function hideImageBanner()
