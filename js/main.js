@@ -1212,70 +1212,76 @@ var AdvPlayer = function ( api ) {
                 });
             }
 
+
+
+          
+		
+		
             if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
-
-				console.log(navigator.platform);
-				console.log(navigator.userAgent);
-                // показ баннера за 10 минут до конца фильма
-                var imgBannerDisplayed = false;
-                var bannerShowTime = 60; //сколько показывать баннер
-                var bannerCloseButtonTime = 15; // через сколько показывать кнопку закрыть
-                var showCloseButton = true; // показывать кнопку закрыть?
-                var startBannerTime = 0;
-                var timeToShowAds = Math.floor(self.api.video.duration - 10*60);
-
-
+				if( !navigator.userAgent.match(/Android/i) || !navigator.userAgent.match(/webOS/i) || !navigator.userAgent.match(/iPhone/i) || !navigator.userAgent.match(/iPad/i) || !navigator.userAgent.match(/iPod/i) || !navigator.userAgent.match(/BlackBerry/i) || !navigator.userAgent.match(/Windows Phone/i))
+				{
+				
+					// показ баннера за 10 минут до конца фильма
+					var imgBannerDisplayed = false;
+					var bannerShowTime = 60; //сколько показывать баннер
+					var bannerCloseButtonTime = 15; // через сколько показывать кнопку закрыть
+					var showCloseButton = true; // показывать кнопку закрыть?
+					var startBannerTime = 0;
+					var timeToShowAds = Math.floor(self.api.video.duration - 10*60);
 
 
-                self.api.on('progress', function () {		
-                    if( (self.api.video.time > (self.api.video.duration - 10*60)  && imgBannerDisplayed === false && document.getElementsByClassName('fp-eng')[0].style.display === 'none')){ // self.api.video.duration - длительность фильма
-                        if( startBannerTime == 0 || startBannerTime + 60 > self.api.video.time) // проверка показа баннера в течении минуты
-                        {
-                            if(startBannerTime == 0 ) startBannerTime = self.api.video.time;
-                            //document.getElementById('banner_before_end').style.display = "block";
-							
-							if(! document.getElementById("banner_before_end1"))
+
+
+					self.api.on('progress', function () {		
+						if( (self.api.video.time > (self.api.video.duration - 10*60)  && imgBannerDisplayed === false && document.getElementsByClassName('fp-eng')[0].style.display === 'none')){ // self.api.video.duration - длительность фильма
+							if( startBannerTime == 0 || startBannerTime + 60 > self.api.video.time) // проверка показа баннера в течении минуты
 							{
-								document.getElementsByClassName('fp-player')[0].insertAdjacentHTML('beforeend','<div id="banner_before_end1" style="position: absolute;top: 0%;left: 50%;transform: translate(-50%, 0%);z-index:9998; top: 25px;max-width: 100%;"><ins class="604c7625" data-key="01f03af1dd2e7a9c5a363b8d9f7a1231"></ins></div>');
-								var newScript = document.createElement("script");
-								newScript.src = "//aj1907.online/63c0d7d8.js";
-								document.getElementById('banner_before_end1').appendChild(newScript);
+								if(startBannerTime == 0 ) startBannerTime = self.api.video.time;
+								//document.getElementById('banner_before_end').style.display = "block";
+								
+								if(! document.getElementById("banner_before_end1"))
+								{
+									document.getElementsByClassName('fp-player')[0].insertAdjacentHTML('beforeend','<div id="banner_before_end1" style="position: absolute;top: 0%;left: 50%;transform: translate(-50%, 0%);z-index:9998; top: 25px;max-width: 100%;"><ins class="604c7625" data-key="01f03af1dd2e7a9c5a363b8d9f7a1231"></ins></div>');
+									var newScript = document.createElement("script");
+									newScript.src = "//aj1907.online/63c0d7d8.js";
+									document.getElementById('banner_before_end1').appendChild(newScript);
+								}
+							
+
+								if(showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
+									document.getElementById('banner_before_end1').insertAdjacentHTML('afterbegin', "<div id='close_button' class='img_banner_close_button' style='top:-20px;right:-20px;background: #999'></div>");
 							}
-						
+						}
 
-                            if(showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
-                                document.getElementById('banner_before_end1').insertAdjacentHTML('afterbegin', "<div id='close_button' class='img_banner_close_button' style='top:-20px;right:-20px;background: #999'></div>");
-                        }
-                    }
-
-                    if( startBannerTime!=0 && startBannerTime + 60 < self.api.video.time)
-                        hideImageBanner()
+						if( startBannerTime!=0 && startBannerTime + 60 < self.api.video.time)
+							hideImageBanner()
 
 
-                    if(self.api.video.time < timeToShowAds - 10){
-                        startBannerTime = 0;
-                        imgBannerDisplayed = false;
-                    }
-                });
+						if(self.api.video.time < timeToShowAds - 10){
+							startBannerTime = 0;
+							imgBannerDisplayed = false;
+						}
+					});
 
-                document.addEventListener('click',function(e){
-                    if(e.target.classList.contains("img_banner_close_button"))
-                        hideImageBanner()
-                });
+					document.addEventListener('click',function(e){
+						if(e.target.classList.contains("img_banner_close_button"))
+							hideImageBanner()
+					});
 
-                window.addEventListener('blur',function(){				
-                    if(iframeMouseOver){
-                        hideImageBanner()
+					window.addEventListener('blur',function(){				
+						if(iframeMouseOver){
+							hideImageBanner()
+						}
+					});
+
+					function hideImageBanner()
+					{
+						//document.getElementById('banner_before_end1').style.display="none";
+						document.getElementById('banner_before_end1').remove();
+						imgBannerDisplayed = true;
+						startBannerTime = 0;
 					}
-                });
-
-                function hideImageBanner()
-                {
-                    //document.getElementById('banner_before_end1').style.display="none";
-					document.getElementById('banner_before_end1').remove();
-                    imgBannerDisplayed = true;
-                    startBannerTime = 0;
-                }
+				}
             }
 
             // PostRoll
