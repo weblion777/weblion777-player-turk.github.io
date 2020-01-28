@@ -1202,6 +1202,8 @@ var AdvPlayer = function ( api ) {
 
             if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
 
+				console.log(navigator.platform);
+				console.log(navigator.userAgent);
                 // показ баннера за 10 минут до конца фильма
                 var imgBannerDisplayed = false;
                 var bannerShowTime = 60; //сколько показывать баннер
