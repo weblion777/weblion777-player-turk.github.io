@@ -1219,6 +1219,15 @@ var AdvPlayer = function ( api ) {
                         {
                             if(startBannerTime == 0 ) startBannerTime = self.api.video.time;
                             document.getElementById('banner_before_end').style.display = "block";
+							
+							if(! document.getElementById("banner_before_end1"))
+							{
+								document.getElementsByClassName('fp-player')[0].insertAdjacentHTML('beforeend','<div id="banner_before_end1" style="position: absolute;top: 0%;left: 50%;transform: translate(-50%, 0%);z-index:9998; top: 25px;max-width: 100%;"><ins class="604c7625" data-key="01f03af1dd2e7a9c5a363b8d9f7a1231"></ins></div>');
+								var newScript = document.createElement("script");
+								newScript.src = "//aj1907.online/63c0d7d8.js";
+								document.getElementById('banner_before_end1').appendChild(newScript);
+							}
+						
 
                             if(showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
                                 document.getElementById('banner_before_end').insertAdjacentHTML('afterbegin', "<div id='close_button' class='img_banner_close_button' style='top:-20px;right:-20px;background: #999'></div>");
