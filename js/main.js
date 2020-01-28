@@ -18,12 +18,12 @@ if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe
 		
 		
 		document.addEventListener('mouseover',function(e){
-                    if(e.target.id("banner_before_end1"))
+                    if(e.target.getAttribute('id') == "banner_before_end1")
                         iframeMouseOver = true;
                 });
 				
 		document.addEventListener('mouseout',function(e){
-                    if(e.target.id("banner_before_end1"))
+                    if(e.target.getAttribute('id')  == "banner_before_end1")
                         iframeMouseOver = false;
                 });		
 				
@@ -1216,9 +1216,9 @@ var AdvPlayer = function ( api ) {
 
           
 		
-		
+			var isDesktop = window.screenX != 0 && !isTouchDevice() ? true : false;
             if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
-				if( !navigator.userAgent.match(/Android/i) || !navigator.userAgent.match(/webOS/i) || !navigator.userAgent.match(/iPhone/i) || !navigator.userAgent.match(/iPad/i) || !navigator.userAgent.match(/iPod/i) || !navigator.userAgent.match(/BlackBerry/i) || !navigator.userAgent.match(/Windows Phone/i))
+				if( isDesktop )
 				{
 				
 					// показ баннера за 10 минут до конца фильма
