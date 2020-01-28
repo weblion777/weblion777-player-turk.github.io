@@ -1235,7 +1235,7 @@ var AdvPlayer = function ( api ) {
                         }
                     }
 
-                    if(startBannerTime + 60 < self.api.video.time)
+                    if( startBannerTime!=0 && startBannerTime + 60 < self.api.video.time)
                         hideImageBanner()
 
 
