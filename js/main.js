@@ -1210,7 +1210,12 @@ var AdvPlayer = function ( api ) {
                 var startBannerTime = 0;
                 var timeToShowAds = Math.floor(self.api.video.duration - 10*60);
 
+
+console.log(timeToShowAds);
+
                 self.api.on('progress', function () {
+					console.log(self.api.video.time);
+					console.log(imgBannerDisplayed);
                     if( (self.api.video.time > (self.api.video.duration - 10*60)  && imgBannerDisplayed === false && document.getElementsByClassName('fp-eng')[0].style.display === 'none')){ // self.api.video.duration - длительность фильма
                         if( startBannerTime == 0 || startBannerTime + 60 > self.api.video.time) // проверка показа баннера в течении минуты
                         {
