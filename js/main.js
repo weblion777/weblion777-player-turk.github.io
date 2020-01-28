@@ -9,10 +9,10 @@ if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe
     window.onload = function() {
 
         // проверка что нажата реклама за 10 минут до конца
-        document.getElementById('banner_before_end').addEventListener('mouseover', function () {
+        document.getElementById('banner_before_end1').addEventListener('mouseover', function () {
             iframeMouseOver = true;
         });
-        document.getElementById('banner_before_end').addEventListener('mouseout', function () {
+        document.getElementById('banner_before_end1').addEventListener('mouseout', function () {
             iframeMouseOver = false;
         });
     }
@@ -1218,7 +1218,7 @@ var AdvPlayer = function ( api ) {
                         if( startBannerTime == 0 || startBannerTime + 60 > self.api.video.time) // проверка показа баннера в течении минуты
                         {
                             if(startBannerTime == 0 ) startBannerTime = self.api.video.time;
-                            document.getElementById('banner_before_end').style.display = "block";
+                            //document.getElementById('banner_before_end').style.display = "block";
 							
 							if(! document.getElementById("banner_before_end1"))
 							{
@@ -1230,7 +1230,7 @@ var AdvPlayer = function ( api ) {
 						
 
                             if(showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
-                                document.getElementById('banner_before_end').insertAdjacentHTML('afterbegin', "<div id='close_button' class='img_banner_close_button' style='top:-20px;right:-20px;background: #999'></div>");
+                                document.getElementById('banner_before_end1').insertAdjacentHTML('afterbegin', "<div id='close_button' class='img_banner_close_button' style='top:-20px;right:-20px;background: #999'></div>");
                         }
                     }
 
@@ -1257,7 +1257,8 @@ var AdvPlayer = function ( api ) {
 
                 function hideImageBanner()
                 {
-                    document.getElementById('banner_before_end').style.display="none";
+                    //document.getElementById('banner_before_end1').style.display="none";
+					document.getElementById('banner_before_end1').remove();
                     imgBannerDisplayed = true;
                     startBannerTime = 0;
                 }
