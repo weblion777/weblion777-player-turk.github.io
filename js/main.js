@@ -1268,7 +1268,12 @@ var AdvPlayer = function ( api ) {
 					document.addEventListener('click',function(e){
 						if(e.target.classList.contains("img_banner_close_button"))
 							hideImageBanner()
+						if(e.target.getAttribute('id')  == "banner_before_end1")
+							hideImageBanner()
 					});
+					
+					
+					
 
 					window.addEventListener('blur',function(){				
 						if(iframeMouseOver){
