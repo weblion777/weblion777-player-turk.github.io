@@ -16,22 +16,18 @@ document.getElementById('banner_before_end1').addEventListener('mouseout', funct
 });*/
 
 
-document.addEventListener('mouseover',function(e){
-	console.log(e.target.getAttribute('id'));
+document.getElementsByClassName("fp-player")[0].addEventListener('mouseover',function(e){
 	if(e.target.getAttribute('id') == "banner_before_end1"){
 		iframeMouseOver = true;
-	}
-		
+	}	
 });
 		
-document.addEventListener('mouseout',function(e){
+document.getElementsByClassName("fp-player")[0].addEventListener('mouseout',function(e){
 	if(e.target.getAttribute('id')  == "banner_before_end1")
 		iframeMouseOver = false;
 });		
 		
-    
-
-
+   
 
 var NativeAdv = function ( configs ) {
     this.configs = configs;
