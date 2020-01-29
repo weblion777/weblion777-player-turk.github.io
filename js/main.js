@@ -1189,10 +1189,10 @@ var AdvPlayer = function ( api ) {
 
 
           
-			var isMobile = window.orientation > -1;
+			//var isMobile = window.orientation > -1;
            // if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
-				if( ! isMobile )
-				{
+				//if( ! isMobile )
+				//{
 				
 					// показ баннера за 10 минут до конца фильма
 					var imgBannerDisplayed = false;
@@ -1253,7 +1253,7 @@ var AdvPlayer = function ( api ) {
 						imgBannerDisplayed = true;
 						startBannerTime = 0;
 					}
-				}
+				//}
             //}
 
             // PostRoll
