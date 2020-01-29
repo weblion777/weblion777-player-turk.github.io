@@ -4,7 +4,7 @@ function setCookie(a,b,c){c=c||{};var e=c.expires;if('number'==typeof e&&e){var 
 function deleteCookie(a){setCookie(a,'',{expires:-1})}
 if (getCookie(cookie_name+'_'+domain) === undefined) setCookie(cookie_name+'_'+domain, window.location.protocol + '//' + domain + '/', {expires: 0,domain: '.hdvb.cc'});
 
-if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
+//if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
     var iframeMouseOver = false;
     window.onload = function() {
 
@@ -29,7 +29,7 @@ if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe
 				
     }
 
-}
+//}
 
 var NativeAdv = function ( configs ) {
     this.configs = configs;
