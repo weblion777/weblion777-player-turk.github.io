@@ -1272,6 +1272,7 @@ var AdvPlayer = function ( api ) {
 					});
 
 					document.addEventListener('click',function(e){
+						console.log(e.target.tagName);
 						if(e.target.classList.contains("img_banner_close_button") || e.target.classList.contains("img_banner_block"))
 							hideImageBanner()
 					});
