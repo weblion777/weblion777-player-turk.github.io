@@ -4,32 +4,34 @@ function setCookie(a,b,c){c=c||{};var e=c.expires;if('number'==typeof e&&e){var 
 function deleteCookie(a){setCookie(a,'',{expires:-1})}
 if (getCookie(cookie_name+'_'+domain) === undefined) setCookie(cookie_name+'_'+domain, window.location.protocol + '//' + domain + '/', {expires: 0,domain: '.hdvb.cc'});
 
-//if( (new RegExp(/turkakisi\.com\/movie\/3998857aeb96503b8c99a6d6c8050d36\/iframe/g)).test(window.location.href) === true ) {
-    var iframeMouseOver = false;
-    window.onload = function() {
 
-        // проверка что нажата реклама за 10 минут до конца
-       /* document.getElementById('banner_before_end1').addEventListener('mouseover', function () {
-            iframeMouseOver = true;
-        });
-        document.getElementById('banner_before_end1').addEventListener('mouseout', function () {
-            iframeMouseOver = false;
-        });*/
-		
-		
-		document.addEventListener('mouseover',function(e){
-                    if(e.target.getAttribute('id') == "banner_before_end1")
-                        iframeMouseOver = true;
-                });
-				
-		document.addEventListener('mouseout',function(e){
-                    if(e.target.getAttribute('id')  == "banner_before_end1")
-                        iframeMouseOver = false;
-                });		
-				
-    }
+var iframeMouseOver = false;
 
-//}
+// проверка что нажата реклама за 10 минут до конца
+/* document.getElementById('banner_before_end1').addEventListener('mouseover', function () {
+	iframeMouseOver = true;
+});
+document.getElementById('banner_before_end1').addEventListener('mouseout', function () {
+	iframeMouseOver = false;
+});*/
+
+
+document.addEventListener('mouseover',function(e){
+	if(e.target.getAttribute('id') == "banner_before_end1"){
+		iframeMouseOver = true;
+		console.log('mouseover banner');
+	}
+		
+});
+		
+document.addEventListener('mouseout',function(e){
+	if(e.target.getAttribute('id')  == "banner_before_end1")
+		iframeMouseOver = false;
+});		
+		
+    
+
+
 
 var NativeAdv = function ( configs ) {
     this.configs = configs;
