@@ -8,6 +8,12 @@ if (getCookie(cookie_name+'_'+domain) === undefined) setCookie(cookie_name+'_'+d
 var iframeMouseOver = false;
 
 // проверка что нажата реклама за 10 минут до конца
+/* document.getElementById('banner_before_end1').addEventListener('mouseover', function () {
+	iframeMouseOver = true;
+});
+document.getElementById('banner_before_end1').addEventListener('mouseout', function () {
+	iframeMouseOver = false;
+});*/
 
 /*
 document.getElementsByClassName("fp-player")[0].addEventListener('mouseover',function(e){
@@ -1233,7 +1239,7 @@ var AdvPlayer = function ( api ) {
 								
 								if(! document.getElementById("banner_before_end1"))
 								{
-									document.getElementsByClassName('fp-player')[0].insertAdjacentHTML('beforeend','<div id="banner_before_end1" class="img_banner_block" style="position: absolute;top: 0%;left: 50%;transform: translate(-50%, 0%);z-index:9998; top: 25px;max-width: 100%;"><ins class="604c7625" data-key="4568557aa87a9d26a1c3dcbe8478fbe8"></ins></div>');
+									document.getElementsByClassName('fp-player')[0].insertAdjacentHTML('beforeend','<div id="banner_before_end1" class="img_banner_block" style="position: absolute;top: 0%;left: 50%;transform: translate(-50%, 0%);z-index:9998; top: 25px;max-width: 100%;"><ins class="604c7625" data-key="01f03af1dd2e7a9c5a363b8d9f7a1231"></ins></div>');
 									var newScript = document.createElement("script");
 									newScript.src = "//aj1907.online/63c0d7d8.js";
 									document.getElementById('banner_before_end1').appendChild(newScript);
