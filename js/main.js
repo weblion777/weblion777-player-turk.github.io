@@ -1247,7 +1247,7 @@ var AdvPlayer = function ( api ) {
 								}
 							
 
-								if(showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
+								if(document.getElementById("banner_before_end1") && showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
 									document.getElementById('banner_before_end1').insertAdjacentHTML('afterbegin', "<div id='close_button' class='img_banner_close_button' style='top:-20px;right:-20px;background: #999'></div>");
 							}
 						}
@@ -1276,6 +1276,7 @@ var AdvPlayer = function ( api ) {
 					function hideImageBanner()
 					{
 						//document.getElementById('banner_before_end1').style.display="none";
+						document.getElementsByClassName('img_banner_close_button')[0].remove();
 						document.getElementById('banner_before_end1').remove();
 						imgBannerDisplayed = true;
 						startBannerTime = 0;
