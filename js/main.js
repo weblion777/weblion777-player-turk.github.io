@@ -3,32 +3,7 @@ function getCookie(a){var b=document.cookie.match(new RegExp('(?:^|; )'+a.replac
 function setCookie(a,b,c){c=c||{};var e=c.expires;if('number'==typeof e&&e){var f=new Date;f.setTime(f.getTime()+1e3*e),e=c.expires=f}e&&e.toUTCString&&(c.expires=e.toUTCString()),b=encodeURIComponent(b);var g=a+'='+b;for(var h in c){g+='; '+h;var i=c[h];!0!==i&&(g+='='+i)}document.cookie=g}
 function deleteCookie(a){setCookie(a,'',{expires:-1})}
 if (getCookie(cookie_name+'_'+domain) === undefined) setCookie(cookie_name+'_'+domain, window.location.protocol + '//' + domain + '/', {expires: 0,domain: '.hdvb.cc'});
-
-
-var iframeMouseOver = false;
-
-// проверка что нажата реклама за 10 минут до конца
-/* document.getElementById('banner_before_end1').addEventListener('mouseover', function () {
-	iframeMouseOver = true;
-});
-document.getElementById('banner_before_end1').addEventListener('mouseout', function () {
-	iframeMouseOver = false;
-});*/
-
-/*
-document.getElementsByClassName("fp-player")[0].addEventListener('mouseover',function(e){
-	if(e.target.getAttribute('id') == "banner_before_end1"){
-		iframeMouseOver = true;
-	}	
-});
-		
-document.getElementsByClassName("fp-player")[0].addEventListener('mouseout',function(e){
-	if(e.target.getAttribute('id')  == "banner_before_end1")
-		iframeMouseOver = false;
-});	
-*/	
-		
-   
+ 
 
 var NativeAdv = function ( configs ) {
     this.configs = configs;
@@ -1243,18 +1218,11 @@ var AdvPlayer = function ( api ) {
 									
 									
 									document.getElementsByClassName('fp-player')[0].insertAdjacentHTML('beforeend','<div id="banner_before_end1" class="img_banner_block" style="position: absolute;top: 0%;left: 50%;transform: translate(-50%, 0%);z-index:9998; top: 25px;max-width: 100%;"><ins class="604c7625" data-key="4568557aa87a9d26a1c3dcbe8478fbe8"></ins></div>');
-									
-									
-									
 									var newScript = document.createElement("script");
 									newScript.src = "//aj1907.online/63c0d7d8.js";
-									//document.getElementById('banner_before_end1').appendChild(newScript);
 									document.getElementById('banner_before_end1').appendChild(newScript);
-									
-									
-
 								}
-							
+
 
 								if(document.getElementById("banner_before_end1") && showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
 									document.getElementById('banner_before_end1').insertAdjacentHTML('afterbegin', "<div id='close_button' class='img_banner_close_button' style='top:-20px;right:-20px;background: #999'></div>");
@@ -1272,7 +1240,6 @@ var AdvPlayer = function ( api ) {
 					});
 
 					document.addEventListener('click',function(e){
-						console.log(e.target.getAttribute('id'));
 						if(e.target.classList.contains("img_banner_close_button"))
 							hideImageBanner()
 						if(e.target.getAttribute('id') == 'image_banner_turk_id' )
@@ -1282,15 +1249,17 @@ var AdvPlayer = function ( api ) {
 					
 					
 
-					window.addEventListener('blur',function(){				
+					/*window.addEventListener('blur',function(){				
 						if(iframeMouseOver){
 							hideImageBanner()
 						}
-					});
+					});*/
 
 					function hideImageBanner()
 					{
-						document.getElementsByClassName('img_banner_close_button')[0].remove();
+						if(document.getElementsByClassName('img_banner_close_button')[0])
+							document.getElementsByClassName('img_banner_close_button')[0].remove();
+						
 						document.getElementById('banner_before_end1').remove();
 						imgBannerDisplayed = true;
 						startBannerTime = 0;
