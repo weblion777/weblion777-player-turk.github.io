@@ -1249,11 +1249,12 @@ var AdvPlayer = function ( api ) {
 								
 								// изменения размера баннера для адаптивности		
 								if( document.getElementById("banner_before_end1")){
+									var setStyle = false;
 									let myiFrame =  document.querySelectorAll("#banner_before_end1 > ins > ins > iframe");
-									if(myiFrame[0]){
+									if(myiFrame[0] && !setStyle){
+										setStyle = true;
 										let doc = myiFrame[0].contentWindow.document;
-										//doc.body.innerHTML = doc.body.innerHTML + '<style>img{max-width: 100%;  height: auto;}</style>';
-										doc.body.insertAdjacentHTML("beforeBegin", "<style>img{max-width: 100%;  height: auto;}</style>");
+										doc.body.insertAdjacentHTML("afterbegin", "<style>img{max-width: 100%;  height: auto;}</style>");
 									}
 								}
 							
