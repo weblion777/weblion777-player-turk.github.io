@@ -17,9 +17,9 @@ document.getElementById('banner_before_end1').addEventListener('mouseout', funct
 
 
 document.addEventListener('mouseover',function(e){
+	console.log(e.target.getAttribute('id'));
 	if(e.target.getAttribute('id') == "banner_before_end1"){
 		iframeMouseOver = true;
-		console.log('mouseover banner');
 	}
 		
 });
