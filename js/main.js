@@ -1272,8 +1272,10 @@ var AdvPlayer = function ( api ) {
 					});
 
 					document.addEventListener('click',function(e){
-						console.log(e.target.tagName);
-						if(e.target.classList.contains("img_banner_close_button") || e.target.classList.contains("img_banner_block"))
+						console.log(e.target.getAttribute('id'));
+						if(e.target.classList.contains("img_banner_close_button"))
+							hideImageBanner()
+						if(e.target.getAttribute('id') == 'image_banner_turk_id' )
 							hideImageBanner()
 					});
 					
