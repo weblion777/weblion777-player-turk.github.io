@@ -1246,17 +1246,6 @@ var AdvPlayer = function ( api ) {
 									document.getElementById('banner_before_end1').appendChild(newScript);
 
 								}
-								
-								// изменения размера баннера для адаптивности		
-								if( document.getElementById("banner_before_end1")){
-									var setStyle = false;
-									let myiFrame =  document.querySelectorAll("#banner_before_end1 > ins > ins > iframe");
-									if(myiFrame[0] && !setStyle){
-										setStyle = true;
-										let doc = myiFrame[0].contentWindow.document;
-										doc.body.insertAdjacentHTML("afterbegin", "<style>img{max-width: 100%;  height: auto;}</style>");
-									}
-								}
 							
 
 								if(document.getElementById("banner_before_end1") && showCloseButton && startBannerTime + 15 < self.api.video.time && !document.body.contains( document.getElementsByClassName('img_banner_close_button')[0] )) //проверка показа кнопки закрыть через 15 с
