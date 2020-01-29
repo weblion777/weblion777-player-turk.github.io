@@ -8,14 +8,8 @@ if (getCookie(cookie_name+'_'+domain) === undefined) setCookie(cookie_name+'_'+d
 var iframeMouseOver = false;
 
 // проверка что нажата реклама за 10 минут до конца
-/* document.getElementById('banner_before_end1').addEventListener('mouseover', function () {
-	iframeMouseOver = true;
-});
-document.getElementById('banner_before_end1').addEventListener('mouseout', function () {
-	iframeMouseOver = false;
-});*/
 
-
+/*
 document.getElementsByClassName("fp-player")[0].addEventListener('mouseover',function(e){
 	if(e.target.getAttribute('id') == "banner_before_end1"){
 		iframeMouseOver = true;
@@ -25,7 +19,8 @@ document.getElementsByClassName("fp-player")[0].addEventListener('mouseover',fun
 document.getElementsByClassName("fp-player")[0].addEventListener('mouseout',function(e){
 	if(e.target.getAttribute('id')  == "banner_before_end1")
 		iframeMouseOver = false;
-});		
+});	
+*/	
 		
    
 
