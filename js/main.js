@@ -1250,6 +1250,8 @@ var AdvPlayer = function ( api ) {
 								if( document.getElementById("banner_before_end1")){
 									// изменения размера баннера для адаптивности
 									let myiFrame =  document.querySelectorAll("#banner_before_end1 > ins > ins > iframe");
+									console.log('myiFrame ' + myiFrame);
+									console.log('ins ' + document.querySelectorAll("#banner_before_end1 > ins > ins"));
 								    let doc = myiFrame[0].contentWindow.document;
 								    doc.body.innerHTML = doc.body.innerHTML + '<style>img{max-width: 100%;  height: auto;}</style>';
 								}
