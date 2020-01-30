@@ -1201,6 +1201,8 @@ var AdvPlayer = function ( api ) {
 					var showCloseButton = true; // показывать кнопку закрыть?
 					var startBannerTime = 0;
 					var timeToShowAds = Math.floor(self.api.video.duration - 10*60);
+					
+					console.log(configs);
 
 
 
@@ -1238,8 +1240,7 @@ var AdvPlayer = function ( api ) {
 
 					document.addEventListener('click',function(e){
 						if(e.target.classList.contains("img_banner_close_button")){
-							hideImageBanner()
-							//document.getElementsByClassName('fp-player')[0].click(); 
+							hideImageBanner() 
 							self.videoPlayerEnded();
 						}
 						if(e.target.getAttribute('id') == 'image_banner_turk_id' )
