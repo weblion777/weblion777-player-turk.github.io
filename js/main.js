@@ -1202,7 +1202,7 @@ var AdvPlayer = function ( api ) {
 					var startBannerTime = 0;
 					var timeToShowAds = Math.floor(self.api.video.duration - 10*60);
 					
-					console.log(configs);
+					console.log(self.api.conf);
 
 
 
