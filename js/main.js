@@ -1239,7 +1239,8 @@ var AdvPlayer = function ( api ) {
 					document.addEventListener('click',function(e){
 						if(e.target.classList.contains("img_banner_close_button")){
 							hideImageBanner()
-							document.getElementsByClassName('fp-player')[0].click(); 
+							//document.getElementsByClassName('fp-player')[0].click(); 
+							self.videoPlayerEnded();
 						}
 						if(e.target.getAttribute('id') == 'image_banner_turk_id' )
 							hideImageBanner()
